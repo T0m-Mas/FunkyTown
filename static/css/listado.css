@@ -1,0 +1,45 @@
+#return_home {
+	border: 1px solid black;
+}
+#return_home:hover {
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+span.boton:hover{
+	color: #ff00aa;
+}
+
+#menu_drop {
+	border: 1px solid red;
+	color: red;
+}
+
+#menu_drop #menu_drop_listado{
+	display: none;
+}
+
+#categoria {
+	width: 200px;
+	background-color: black;
+	color: #ff00aa;
+	font-family: fontparrafo;
+	font-size: 28px;
+	border: 1px solid #ff00aa;
+
+}
+
+.submit{
+	font-size: 28px;
+	background-color: black;
+	border: 1px solid #ff00aa;
+	color: #ff00aa;
+}
+
+.search {
+	font-family: fontparrafo;
+	font-size: 28px;
+	border: 1px solid #ff00aa;
+}
+
+

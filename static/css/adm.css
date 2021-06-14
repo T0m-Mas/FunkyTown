@@ -1,0 +1,149 @@
+.boton{
+	float: right;
+	margin-top: 15px;
+	margin-right: 25px;
+}
+.contenido{
+	max-width: 600px;
+	text-align: center;
+	overflow: auto;	
+}
+.contenido a{
+	display: block;
+	margin-bottom: 10px;
+	text-decoration: none;
+	color: white;
+	font-family: fontparrafo;
+}
+.contenido a:hover{
+	color: #00ffdd ;
+}
+.contenido h2{
+	text-align: center;
+}
+
+.contenido label{
+	font-family: fontparrafo;
+}
+.campo{
+	text-align: left;
+	margin-left: 115px;
+}
+.campo input{
+	width: 150px;
+}
+.campo label{
+	display: inline-block;
+	width: 200px;
+	float: left;
+}
+#descripcion,#nuevadescripcion {
+	height: 100px;
+	margin-top: 5px;
+}
+#precio,#nuevoprecio{
+	width: 50px;
+}
+#submit{
+	margin-top: 20px;
+}
+textarea{
+	white-space: pre-wrap;
+}
+.listado{
+	text-align: left;
+
+}
+.listado a{
+	display: inline-block;
+	margin: 0;
+	padding: 1px;
+	color: #ff00aa;
+
+}
+.listado a:hover{
+	color: #00ffdd;
+}
+.listado p{
+	margin: 10px;
+	padding-left: 5px;
+	border: 1px solid black;
+	box-shadow: 2px 2px 1px #ff00aa;
+}
+.listado .titulo{
+	display: inline-block;
+	width: 390px;
+	font-family: fontparrafo;
+}
+.contenido img{
+	float: left;
+	overflow: auto;
+	width: 210px;
+	height: 210px;
+	margin-right: 50px;
+}
+.campo label.lbl2{
+	width: 110px;
+	margin-right: 10px;
+}
+.campo input.btn_cambiar{
+	width: auto;
+}
+.campo input#eliminar{
+	display: block;
+}
+.campo input#guardar{
+	display: block;
+}
+.campo p{
+	font-family: fontparrafo;
+	margin: 10px;
+}
+
+.contenido table{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 130px;
+	margin-bottom: 30px;
+	font-size: 34px;
+}
+
+.contenido tr{	
+	border: 1px solid red;
+	background-color: grey;
+}
+
+.contenido th,.contenido td{
+	font-family: fontparrafo;
+	padding: 5px;
+}
+
+.btnstock{
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	margin: 0;
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	font-size: 22px;
+}
+.btnstock:hover{	
+	background-color: #ff00aa;
+	color: black;
+	cursor: pointer;
+}
+
+.number{
+	width: 50px;
+	height: 26px;
+	font-size: 23px;
+	text-align: center;
+}
+
+.botones{
+	margin-top: 25px;
+}
+#inputfile{
+	display: none;
+}

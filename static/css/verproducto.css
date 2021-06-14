@@ -1,0 +1,80 @@
+.hide{
+	display: none;
+}
+.nohide{
+	display: inline-block;
+}
+.contenido {
+	max-width: 850px;
+	overflow: auto;
+}
+
+.contenido img{
+	width: 350px;
+	min-height: 345px;
+	height: auto;
+	border: 4px solid #ff00aa;
+	float: left;
+	margin-right: 30px;
+}
+
+.contenido h2{
+	font-size: 36px;
+}
+.contenido p{
+	font-family: fontparrafo;
+	white-space: pre-wrap;
+}
+.contenido label{
+	font-family: fontparrafo;
+	display: inline-block;
+	width: 90px;
+	height: auto;
+	margin: 0;
+}
+.campo{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	height: 27px;
+}
+select#talle{
+	display: inline;
+	background-color: black;
+	color: #ff00aa;
+	border: 1px solid #ff00aa;
+	font-family: fontparrafo;
+	font-size: 28px;
+	text-align: center;
+	width: 56px;
+}
+input#cantidad{
+	height: 27px;
+	width: 50px;
+	background-color: black;
+	color: #ff00aa;
+	border: 1px solid #ff00aa;
+	font-family: fontparrafo;
+	font-size: 28px;
+	text-align: center;
+}
+input#cantidad:focus,select#talle:focus,input#cantidad:hover,select#talle:hover{
+	border: 1px solid #00ffdd;
+	color: #00ffdd;
+}
+#error{
+	margin-top: 35px;
+}
+#btn_agregar{
+	height: auto;
+	width: auto;
+	background-color: black;
+	color: #ff00aa;
+	border: 2px solid #ff00aa;
+	font-family: fontparrafo;
+	font-size: 28px;
+	text-align: center;
+	float: right;
+	margin-top: 40px;
+	margin-right: 30px;
+
+}

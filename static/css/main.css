@@ -1,0 +1,130 @@
+@font-face {
+	font-family: fontbanner;
+	src: url(../fonts/dash.otf);
+}
+@font-face {
+	font-family: fonttitulo;
+	src: url(../fonts/BlackBrush.otf);
+}
+@font-face{
+	font-family: fontparrafo;
+	src: url(../fonts/hwyg.ttf);
+}
+@font-face{
+	font-family: fontsubtitulo;
+	src: url(../fonts/hwyg.ttf);
+}
+
+body {
+	margin: 0;
+	background-color: #ff98f1;
+	padding-bottom: 70px;
+}
+.contenido {
+	margin: auto;
+	margin-top: 10px;
+	max-width: 1280px;
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+	box-shadow: 30px 30px 1px #00ffdd,60px 60px 1px #ff00aa;
+	padding: 20px;
+	font-size: 24px;
+}
+
+.contenido h2{
+	font-family: fontparrafo;
+}
+
+/*
+Colores: 
+#00ffdd celeste
+#ff00aa rosa
+#ff98f1 rosa clarito
+*/
+
+.banner {
+	border: 1px solid black;
+	display: block;
+	height: auto;
+	padding: 0px;
+	margin: auto;
+	max-width: 1280px;	
+}
+.fondobanner{
+	background-color: black;
+}
+#logo {
+	height: 82px;
+	width: 82px;
+	display: inline-block;
+	margin: 10px;
+	margin-right: 10px;
+	float: left; 
+	}
+
+.banner h1{
+	margin: 18px;
+	margin-left: 0px;
+	margin-right: 0px;
+	display: inline-block;
+	font-size: 52px;
+	letter-spacing: 8px;
+	font-family: fonttitulo;
+	color: white;
+	text-shadow: 3px 3px 1px #00ffdd,6px 6px 1px #ff00aa;
+}
+
+.menu {
+	border: none;
+	background-color: black;
+	height: 65px;
+	padding-top: 6px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.menu_contenido {
+	float: left;
+	width: 700px;
+}
+.menu_usuario {
+	float: right;
+
+}
+.boton {
+	display: block;
+	color: #ff00aa;
+	border: none;
+	background-color: black;
+	float: left;
+	padding: 0px;
+	font-style: normal;
+	text-decoration: none;
+	box-shadow: none;
+	font-family: fontbanner;
+	font-size: 32px;
+	text-shadow: 1px 1px 1px #00ffdd;
+	letter-spacing: 1px;
+}
+.boton:hover{
+	color: #00ffdd;
+}
+.menu_usuario .boton{
+	margin-left: 35px;
+}
+.menu_contenido .boton{
+	margin-right: 35px;
+}
+#return_home {
+	border: 1px solid black;
+	display: inline-block;
+}
+.go_chango{
+	float: right;
+}
+.go_chango img{
+	width: 56px;
+	height: 56px;
+	margin-top: 40px;
+	margin-right: 18px; 
+}

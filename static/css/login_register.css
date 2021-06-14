@@ -1,0 +1,72 @@
+#return_home:hover {
+	border: 1px solid black;
+	cursor: pointer;
+}
+.contenido {
+	text-align: center;
+	padding-bottom: 0;
+	max-width: 800px;
+}
+.contenido h2{
+	font-size: 48px;
+}
+.campo {
+	display: block;
+	margin: 50px;
+}
+.campo2 {
+	display: block;
+	margin: 35px;
+}
+
+.formlogin {
+	border: 8px solid #ff00aa;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 60%;
+	width: 50%;
+	text-align: center;
+}
+.btn{
+	border: 3px solid #ff00aa;
+	background-color: black;
+	color: #ff00aa;
+	height: 60px;
+	width: 168px;
+	font-family: fontparrafo;
+	font-size: 26px;
+	margin-bottom: 50px;
+
+}
+.btn:hover{
+	border: 3px solid #00ffdd;
+	color: #00ffdd;
+	cursor: pointer;
+}
+
+label{
+	display: block;
+	font-family: fontparrafo;
+}
+
+.registro{
+	display: block;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family: fontparrafo;
+}
+.registro a{
+	color: #ff00aa;
+	text-decoration: none;
+}
+.registro a:hover{
+	color: #00ffdd;
+	text-decoration: none;
+}
+.error {
+	color: red;
+	font-family: fontparrafo;
+}
+
+
