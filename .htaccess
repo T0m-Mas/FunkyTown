@@ -8,16 +8,20 @@ RewriteRule ^home$ controllers/home.php
 RewriteRule ^catalogo$ controllers/listadoprincipal.php
 RewriteRule ^catalogo/producto$ controllers/verproducto.php
 RewriteRule ^login$ controllers/login_register.php
+RewriteRule ^logout$ controllers/logout.php
 
 RewriteRule ^admin$ controllers/paneladmin.php
 RewriteRule ^admin/altaproducto$ controllers/altaproducto.php
 RewriteRule ^admin/inventario$ controllers/inventario.php
 RewriteRule ^admin/stock$ controllers/verstock.php
 RewriteRule ^admin/modificarproducto$ controllers/modificar_producto.php
+RewriteRule ^admin/altaok$ controllers/altaok.php
+RewriteRule ^admin/listadopedidosadm$ controllers/listadopedidosadm.php
+RewriteRule ^admin/verpedido$ controllers/verdetallepedidoadm.php
 
-RewriteRule ^carrito$ controllers/carrito.php
 RewriteRule ^user$ controllers/userpanel.php
-RewriteRule ^logout$ controllers/logout.php
-RewriteRule ^altaok$ controllers/altaok.php
+RewriteRule ^listadopedidos$ controllers/listadopedidos.php
+RewriteRule ^carrito$ controllers/carrito.php
+RewriteRule ^pedidoOk$ controllers/pedidoOk.php
 
 
