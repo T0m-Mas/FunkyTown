@@ -13,6 +13,8 @@ if(!isset($_GET["id"])){
 	exit;
 }
 
+$view = new VerProducto($_GET["id"]);
+
 if(isset($_POST['agregar'])){
 
 	if($_SESSION['logeado']==false){
@@ -26,11 +28,18 @@ if(isset($_POST['agregar'])){
 		$_SESSION['carrito'] = serialize($p);
 	}else{
 		$p = unserialize($_SESSION['carrito']);
-		$p->agregar($_GET['id'],$_POST['talle'],$_POST['cantidad']);
+		$p->wakeup();//la instancia se pierde al serializar y deserializar
+		$res = $p->agregar($_GET['id'],$_POST['talle'],$_POST['cantidad']);
+		if($res == 1){
+			$view->error = "No hay suficiente stock para agregar al carrito";
+		}
+		//var_dump($p);
 		$_SESSION['carrito'] = serialize($p);
 	}
 
+	header("location: ../carrito");
+	exit();
+
 }
 
-$view = new VerProducto($_GET["id"]);
 $view->render();

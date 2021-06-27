@@ -36,7 +36,7 @@
 						<?php if($_SESSION['privilegios']){ ?>
 							<a href="admin" class="boton">Panel Admin</a>
 						<?php }else {?>
-							<a href="user?id=<?=$_SESSION['USER']['id']?>" class="boton">Hola <?=$_SESSION['USER']['nombre']?>!</a>
+							<a href="user?id=<?=$_SESSION['USER']['id']?>" class="boton" id="user">Hola <?=$_SESSION['USER']['nombre']?>!</a>
 						<?php } ?>
 						<a href="logout" id="blogout" class="boton">Cerrar Sesion</a>
 					<?php } ?>			

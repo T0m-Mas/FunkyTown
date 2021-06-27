@@ -20,23 +20,23 @@
 			<form method="POST">
 				<span class="campo2">
 					<label for="nom">Nombre:</label>
-					<input type="text" name="nom" id="nom">
+					<input type="text" name="nom" id="nom" maxlength="40">
 				</span>
 				<span class="campo2">
 					<label for="ape">Apellido:</label>
-					<input type="text" name="ape" id="ape">	
+					<input type="text" name="ape" id="ape" maxlength="40">	
 				</span>
 				<span class="campo2">
 					<label for="dni">DNI:</label>
-					<input type="text" name="dni" id="dni">
+					<input type="text" name="dni" id="dni"  maxlength="8">
 				</span>
 				<span class="campo2">
 					<label for="user">Email:</label>
-					<input type="text" name="user" id="user">
+					<input type="text" name="user" id="user" maxlength="100">
 				</span>
 				<span class="campo2">	
 					<label for="pass">Contraseña:</label>
-					<input type="password" name="pass" id="pass">
+					<input type="password" name="pass" id="pass"  maxlength="40">
 				</span>
 				<span class="campo2">
 					<label for="pass2">Repita la Contraseña:</label>

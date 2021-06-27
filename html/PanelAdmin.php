@@ -20,7 +20,7 @@
 		<h2>Menu de administrador</h2>
 		<a href="admin/altaproducto">Agregar Nuevo Producto</a>
 		<a href="admin/inventario">Ver Productos/Stock</a>
-		<a href="admin/listadopedidos">Ver Pedidos<a>
+		<a href="admin/listadopedidosadm">Ver Pedidos<a>
 		<a href="home">Volver al home</a>
 	</div>
 

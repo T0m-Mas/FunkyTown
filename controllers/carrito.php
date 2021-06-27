@@ -11,4 +11,20 @@ if(!isset($_SESSION['USER'])){
 }
 
 $v = new Carrito();
+
+if(isset($_POST['quitar'])){
+	if($v->carrito->quitar($_POST['key'])){ //si retorna true hay que eliminar el chango
+		$v->carrito = false;
+		unset($_SESSION['carrito']);
+	}else{
+		$_SESSION['carrito'] = serialize($v->carrito);
+	}
+}
+if(isset($_POST['confirmar'])){
+	$v->carrito->enviar($_SESSION['USER']['id']);
+	unset($_SESSION['carrito']);
+	header("location: pedidoOk");
+	exit;
+}
+
 $v->render();

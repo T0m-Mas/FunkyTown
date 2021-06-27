@@ -57,28 +57,98 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+
+	<?php 
+		$count = 0;
+		$pag = 0; 
+	?>	
 
 	<div class="contenido">
+		<div class="pagina" id="pag_<?=$pag?>">
 		<?php foreach($this->productos as $p){ ?>
-			<td>
-				<a href="catalogo/producto?id=<?=$p['id']?>">
-					<?php 
-						if($p['img']==null){
-							echo '<img src="static/img/noimage.png" />'; 
-						}
-						else{
-							echo '<img src="data:image/jpeg;base64,'.base64_encode($p['img'] ) .'" />'; 
-						}
-					?>
-					<h2><?=$p['titulo']?></h2>
-					<p><?=$p['descripcion']?></p>
-					<p>$<?=$p['precio_venta']?></p>
-				</a>
-			</td>
+			<?php if($p['stock']==0){ ?>		
+			<a href="catalogo/producto?id=<?=$p['id']?>" class="producto_agotado">
+			<?php }else{ ?>
+			<a href="catalogo/producto?id=<?=$p['id']?>" class="producto">
 			<?php } ?>
-		</table>
+				<?php 
+					if($p['img']==null){
+					echo '<img src="static/img/noimage.png" />'; 
+					}
+					else{
+						echo '<img src="data:image/jpeg;base64,'.base64_encode($p['img'] ) .'" />'; 
+					}
+				?>
+				<h2>
+					<?=$p['titulo']?>						
+				</h2>
+				<p>					
+					<?php if($p['stock']==0){ ?>
+					AGOTADO
+					<?php }else{ ?>
+					$<?=$p['precio_venta']?>
+					<?php } ?>
+				</p>
+			</a>
+			<?php $count++ ?>
+			<?php if($count==9){		
+				echo '</div>';
+				$pag++;
+				echo '<div class="pagina_hide" id="pag_'.$pag.'">';
+				$count = 0;
+			} ?>
+			<?php } ?>
+			<?php if($count != 0){
+				echo '</div>';
+		} ?>
+
+
+		<div class="index">
+			<img src="static/img/btnizq.png" class="indexbtn" id="btnpag-">
+			<span class="indexvisr"><span id="pagactual"></span> / <span><?=$pag+1?></span></span>
+			<img src="static/img/btnder.png" class="indexbtn" id="btnpag+">
+		</div>
 	</div>
 </body>
 <script src="static/js/listado.js"></script>
+<script type="text/javascript">
+
+	"use strict";
+
+	var pag_select = document.getElementById("pag_0");
+	var pagnum = 0;
+	var btnsig = document.getElementById("btnpag+");
+	var btnant = document.getElementById("btnpag-");
+	var pagactualvisor = document.getElementById("pagactual");
+	pagactualvisor.innerHTML = 1;
+
+	btnsig.onclick = function(){		
+		pagnum++;
+		if(pagnum><?=$pag?>) {
+			pagnum--;
+			return false;
+		}
+		pag_select.className = "pagina_hide";
+		pag_select = document.getElementById("pag_"+pagnum);
+		pag_select.className = "pagina";
+		pagactualvisor.innerHTML = pagnum+1;
+		
+	}
+
+	btnant.onclick = function(){
+		pagnum--;
+		if(pagnum<0) {
+			pagnum++;
+			return false;
+		}
+		pag_select.className = "pagina_hide";
+		pag_select = document.getElementById("pag_"+pagnum);
+		pag_select.className = "pagina";
+		pagactualvisor.innerHTML = pagnum+1;
+	}
+
+
+
+</script>
 </html>

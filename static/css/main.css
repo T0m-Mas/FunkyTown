@@ -106,6 +106,12 @@ Colores:
 	text-shadow: 1px 1px 1px #00ffdd;
 	letter-spacing: 1px;
 }
+.boton#user{
+	max-width: 260px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
 .boton:hover{
 	color: #00ffdd;
 }

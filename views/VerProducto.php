@@ -5,6 +5,7 @@
 		protected $producto;
 		protected $talles;
 		protected $agotado = false;
+		public $error = "";
 
 		public function __construct($id){			
 			$p = new Producto();

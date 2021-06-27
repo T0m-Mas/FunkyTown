@@ -78,3 +78,8 @@ input#cantidad:focus,select#talle:focus,input#cantidad:hover,select#talle:hover{
 	margin-right: 30px;
 
 }
+#btn_agregar:hover{
+	color: #00ffdd;
+	border: 2px solid #00ffdd;
+	cursor: pointer;
+}

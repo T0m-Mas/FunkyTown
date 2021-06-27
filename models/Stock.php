@@ -2,12 +2,12 @@
 class Stock extends Model{
 
 	public function getID($id){
-		if(!ctype_digit($id)) die("errGetid 1");
-		if($id<=0) die("errGetid 2");
+		if(!ctype_digit($id)) throw new ValidacionException("errGetid 1");
+		if($id<=0) throw new ValidacionException("errGetid 2");
 		$this->db->query("SELECT id FROM producto WHERE id = $id");
-		if($this->db->numRows()==0) die("errGetid 3");
+		if($this->db->numRows()==0) throw new ValidacionException("errGetid 3");
 
-		$this->db->query("SELECT id_producto,talle,cantidad-reserva as cantidad,reserva FROM stock WHERE id_producto = $id");
+		$this->db->query("SELECT id_producto,talle,cantidad-reserva as 'cantidad',reserva FROM stock WHERE id_producto = $id");
 		return $this->db->fetchall();
 	}
 

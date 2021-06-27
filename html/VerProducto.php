@@ -62,8 +62,8 @@
 		<form name="pedido" method="POST">
 			<?php if($this->producto['id_categoria']==5) {?>
 				<label for="cantidad">Cantidad:</label>
-				<input type="number" name="cantidad" id="cantidad" min=1 max=<?=$this->talles['cantidad']?> value="1">
-				<input type="hidden" name="talle" id="talle" value="<?=$this->talles['talle']?>">
+				<input type="number" name="cantidad" id="cantidad" min=1 max=<?=$this->talles[0]['cantidad']?> value="1">
+				<input type="hidden" name="talle" id="talle" value="<?=$this->talles[0]['talle']?>">
 				<?php }else{ ?>
 					<div class="campo">
 						<label for="talle">Talles:</label>
@@ -82,7 +82,7 @@
 						<?php } ?>
 					</div>
 			<?php } ?>			 
-			<p id="error"></p><input type="submit" name="agregar" id="btn_agregar" value="Agregar Al Carrito">
+			<p id="error"><?=$this->error?></p><input type="submit" name="agregar" id="btn_agregar" value="Agregar Al Carrito">
 		</form>
 		<?php }else{ ?>
 			<p>Producto Agotado :(</p>

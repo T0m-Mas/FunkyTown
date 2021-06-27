@@ -11,11 +11,11 @@ document.getElementById("talle").onchange = function(){
 document.getElementById("btn_agregar").onclick = function(){
 	var error = document.getElementById("error");
 	if(document.getElementById("talle").value == ""){
-		error.innerHTML = "Por favor complete los campos";
+		error.innerHTML = "Por favor seleccione un talle";
 		return false;
 	}
 	if(document.getElementById("cantidad").value == "" || document.getElementById("cantidad") == "0"){
-		error.innerHTML = "Por favor complete los campos";
+		error.innerHTML = "Por favor seleccione una cantidad";
 		return false;
 	}
 }

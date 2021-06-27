@@ -5,6 +5,12 @@
 	border: 1px solid black;
 	cursor: pointer;
 }
+.contenido{
+	overflow: auto;
+}
+.pagina{
+	overflow: auto;
+}
 
 span.boton:hover{
 	color: #ff00aa;
@@ -41,5 +47,73 @@ span.boton:hover{
 	font-size: 28px;
 	border: 1px solid #ff00aa;
 }
+
+.pagina_hide{
+	display: none;
+}
+.pagina {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1180px;
+}
+
+.index{
+	text-align: center;
+	font-family: fontparrafo;
+	font-size: 36px;
+	padding: 5px;
+}
+
+.indexbtn{
+	display: inline;
+	height: 24px;
+	width: 24px;
+}
+.indexbtn:hover{
+	cursor: pointer;
+}
+.indexvisr{
+	display: inline-block;
+	width:90px;
+}
+.producto,.producto_agotado{
+	display: inline-block;
+	border: 5px solid #ff00aa;
+	height: 400px;
+	width: 355px;
+	float: left;
+	margin: 14px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+.producto_agotado{
+	border: 5px solid grey;
+}
+.producto img,.producto_agotado img{
+	width: 256px;
+	height: 256px;
+	margin: 5px;
+	box-shadow: 5px 5px 1px #ff00aa;
+}
+.producto_agotado img{	
+	box-shadow: 5px 5px 1px grey;
+}
+.producto h2,.producto_agotado h2{
+	margin: 15px;
+	max-height: 40px;
+	margin-right: 0;
+	margin-left: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.producto_agotado h2{
+	color: grey;
+}
+.producto:hover,.producto_agotado:hover{
+	box-shadow: 8px 8px 1px #00ffdd;
+}
+
 
 

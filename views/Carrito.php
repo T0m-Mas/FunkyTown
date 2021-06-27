@@ -7,7 +7,6 @@ class Carrito extends View{
 	function __construct(){
 		if(isset($_SESSION['carrito'])){
 			$p = unserialize($_SESSION['carrito']);
-			var_dump($p);
 			$this->carrito = $p;
 		}
 		else{

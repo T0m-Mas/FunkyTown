@@ -81,6 +81,7 @@ textarea{
 	width: 210px;
 	height: 210px;
 	margin-right: 50px;
+	cursor: pointer;
 }
 .campo label.lbl2{
 	width: 110px;

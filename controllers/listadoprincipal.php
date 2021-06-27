@@ -16,4 +16,10 @@ if(isset($_GET['categoria'])){
 }else{
 	$vlista->productos = $productos->getTodos();
 }
+
+if(isset($_GET['buscar'])){
+	$vlista->productos = $productos->getTitulo($_GET['buscador']);
+}else{
+	$vlista->productos = $productos->getTodos();
+}
 $vlista->render();
