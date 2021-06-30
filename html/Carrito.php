@@ -5,6 +5,7 @@
 	<title>Carrito</title>
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/chango.css">
+	<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 </head>
 <body>
 	<div class="fondobanner">

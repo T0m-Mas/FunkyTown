@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/adm.css">
 	<link rel="stylesheet" type="text/css" href="static/css/pedidos.css">
+	<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 </head>
 <body>
 	<div class="fondobanner">
@@ -37,4 +38,14 @@
 		<a href="user?id=<?=$_SESSION['USER']['id']?>">Volver</a>
 	</div>
 </body>
+<script type="text/javascript">
+	"use strict";
+
+	<?php foreach ($this->pedidos as $p) { ?>
+		document.getElementById(<?=$p['id']?>).onclick = function(){
+			window.location.href = "verpedido?id=<?=$p['id']?>";
+		}
+	<?php } ?>
+
+</script>
 </html>

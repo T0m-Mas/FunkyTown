@@ -4,6 +4,7 @@
 	<title>Listado De Productos</title>
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/listado.css">
+	<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 </head>
 <body>
 	<div class="fondobanner">
@@ -94,7 +95,9 @@
 			<?php $count++ ?>
 			<?php if($count==9){		
 				echo '</div>';
+				ob_flush();
 				$pag++;
+				ob_start();
 				echo '<div class="pagina_hide" id="pag_'.$pag.'">';
 				$count = 0;
 			} ?>
@@ -102,6 +105,11 @@
 			<?php if($count != 0){
 				echo '</div>';
 		} ?>
+
+		<?php if($count==0) {
+			ob_clean();
+			$pag--;
+		}?>
 
 
 		<div class="index">

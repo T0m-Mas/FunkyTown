@@ -12,6 +12,10 @@ if(!isset($_SESSION['USER'])){
 	header("location: home");
 	exit;
 }
+if($_GET['id']!=$_SESSION['USER']['id']){
+	header("location: home");
+	exit;
+}
 
 $view = new ListadoPedidos($_GET['id']);
 $view->render();

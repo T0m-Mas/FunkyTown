@@ -4,6 +4,7 @@
 	<title>Registrarse</title>
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/login_register.css">
+	<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 </head>
 <body>
 	<div class="fondobanner">

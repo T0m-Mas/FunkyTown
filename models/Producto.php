@@ -8,7 +8,7 @@ class Producto extends Model{
 			"SELECT p.*,SUM(s.cantidad-s.reserva) as stock FROM producto p
 			 LEFT JOIN stock s on s.id_producto = p.id
 			 GROUP BY p.id
-			 ORDER BY stock desc,p.id_categoria"
+			 ORDER BY stock desc"
 		);
 		return $this->db->fetchAll();
 	}

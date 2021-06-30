@@ -120,39 +120,20 @@ class Pedido extends Model{
 
 		$this->db->query(
 			"SELECT p.id,
-			 p.fecha,
+			 DATE_FORMAT(p.fecha,'%d/%m/%Y') as 'fecha',
+			 GROUP_CONCAT(CONCAT(pr.titulo,' x',pp.cantidad) SEPARATOR ' - ') as 'descripcion',
 			 e.descripcion as 'estado',
 			 p.monto_total 
 			 from pedido p
 			 left join estado e on e.id = p.estado
+			 LEFT join pedido_producto pp on pp.id_pedido = p.id
+			 left join producto pr on pr.id = pp.id_producto
 			 WHERE p.id_usuario = $id
-			 order by fecha"
+			 GROUP BY p.id
+			 ORDER BY p.fecha desc"
 		);
 
-		$ret = $this->db->fetchAll();
-
-		foreach($ret as $key => $p){
-			$pid = $p['id'];
-			$this->db->query(
-				"SELECT titulo FROM producto
-				 left join pedido_producto pp on pp.id_producto = producto.id
-				 where pp.id_pedido = $pid"
-			);
-
-			$productos = $this->db->fetchAll();
-
-			$str = "";
-
-			foreach($productos as $pr ){
-				$str = $str . $pr['titulo'] . " - ";
-			}
-			$str = substr($str,0,strlen($str)-3);
-
-			$ret[$key]['descripcion'] = $str;
-
-		}
-
-		return $ret;
+		return $this->db->fetchAll();
 	}
 
 	public function getTodosAdm(){
@@ -161,40 +142,86 @@ class Pedido extends Model{
 			"SELECT p.id,
 			 p.id_usuario,
 			 CONCAT(u.nombre,' ',u.apellido) as 'nombre',
+			 GROUP_CONCAT(CONCAT(pr.titulo,' x',pp.cantidad) SEPARATOR ' - ') as 'descripcion',
 			 u.dni,
-			 p.fecha,
+			 DATE_FORMAT(p.fecha,'%d/%m/%Y') as 'fecha',
+			 e.id as 'estado_id',
 			 e.descripcion as 'estado',
 			 p.monto_total 
 			 from pedido p
 			 left join usuario u on u.id = p.id_usuario
 			 left join estado e on e.id = p.estado
-			 order by fecha"
+			 LEFT join pedido_producto pp on pp.id_pedido = p.id
+			 left join producto pr on pr.id = pp.id_producto
+			 GROUP BY p.id
+			 ORDER BY p.fecha desc
+			 LIMIT 50"
 		);
 
-		$ret = $this->db->fetchAll();
-
-		foreach($ret as $key => $p){
-			$pid = $p['id'];
-			$this->db->query(
-				"SELECT titulo FROM producto
-				 left join pedido_producto pp on pp.id_producto = producto.id
-				 where pp.id_pedido = $pid"
-			);
-
-			$productos = $this->db->fetchAll();
-
-			$str = "";
-
-			foreach($productos as $pr ){
-				$str = $str . $pr['titulo'] . " - ";
-			}
-			$str = substr($str,0,strlen($str)-3);
-
-			$ret[$key]['descripcion'] = $str;
-
+		if($this->db->numRows()==0){
+			return false;
 		}
 
-		return $ret;
+		return $this->db->fetchAll();
+	}
+
+	public function getPorFiltro($nom,$prod,$fecha,$limit){
+
+		/*VALIDAR*/
+		if(strlen($nom)==0) {$f1 = "true";}else{
+		if(strlen($nom)>80) throw new ValidacionException("errgetPorFiltro 1");
+		$nom = $this->db->escape($nom);
+		$nom = str_replace("%","\%",$nom);
+		$nom = htmlentities($nom);
+		$f1 = "nombre LIKE '%$nom%'";
+		}
+
+		if(strlen($prod)==0) {$f2 = "true";}else{
+		if(strlen($prod)>40) throw new ValidacionException("errgetPorFiltro 2");
+		$prod = $this->db->escape($prod);
+		$prod = str_replace("%","\%",$prod);
+		$prod = htmlentities($prod);
+		$f2 = "descripcion LIKE '%$prod%'";
+		}
+		
+		if(strlen($fecha)==0) {$f3 = "true";}else{
+		if(strlen($fecha)>10) throw new ValidacionException("errgetPorFiltro 3");
+		$fecha = $this->db->escape($fecha);
+		$fecha = str_replace("%","\%",$fecha);
+		$fecha = htmlentities($fecha);
+		$f3 = "fecha_sin_formato = '$fecha'";
+		}
+
+		if(!ctype_digit($limit) || $limit<0) {$limit = 50;}
+
+		$this->db->query(
+			"SELECT * FROM
+			(SELECT p.id,
+			p.id_usuario,
+			CONCAT(u.nombre,' ',u.apellido) as nombre,
+			GROUP_CONCAT(CONCAT(pr.titulo,' x',pp.cantidad) SEPARATOR ' - ') as descripcion,
+			u.dni,
+			DATE_FORMAT(p.fecha,'%d/%m/%Y') as fecha,
+			p.fecha as fecha_sin_formato,
+			e.id as 'estado_id',
+			e.descripcion as estado,
+			p.monto_total 
+			from pedido p
+			left join usuario u on u.id = p.id_usuario
+			left join estado e on e.id = p.estado
+			LEFT join pedido_producto pp on pp.id_pedido = p.id
+			left join producto pr on pr.id = pp.id_producto
+			GROUP BY p.id
+			ORDER BY p.fecha desc) AS T
+			WHERE $f1 AND $f2 AND $f3 
+			LIMIT $limit"
+		);
+
+		if($this->db->numRows()==0){
+			return false;
+		}
+		return $this->db->fetchAll();		
+		
 	}
 
 	public function getDetalle($id){
@@ -211,7 +238,7 @@ class Pedido extends Model{
 			 CONCAT(u.nombre,' ',u.apellido) as 'nombre',
 			 u.email,
 			 u.dni,
-			 p.fecha,
+			 DATE_FORMAT(p.fecha,'%d/%m/%Y') as 'fecha',
 			 p.estado as 'estado_id',
 			 e.descripcion as 'estado',
 			 ap.resultado as 'resultado',
@@ -271,6 +298,15 @@ class Pedido extends Model{
 		$this->db->query(
 			"UPDATE pedido SET estado = 2 WHERE id= $id"
 		);
+	}
+
+	public function existe($id){
+		if(!ctype_digit($id)) return false;
+		if($id<0) return false;
+		$this->db->query("SELECT id FROM pedido where id=$id");
+		if(!$this->db->numRows()==1) return false;
+
+		return true;
 	}
 
 	

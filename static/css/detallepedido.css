@@ -1,3 +1,17 @@
 .contenido table{
 	margin-top: auto;
 }
+
+#cancelar,#despachar {
+	background-color: black;
+	border: 2px solid #ff00aa;
+	font-family: fontparrafo;
+	font-size: 24px;
+	color: #ff00aa;
+	margin-bottom: 20px;
+}
+#cancelar:hover,#despachar:hover{
+	border: 2px solid #00ffdd;
+	color: #00ffdd;
+	cursor: pointer;
+}
