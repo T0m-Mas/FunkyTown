@@ -11,16 +11,16 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>
 				<?php if($_SESSION['logeado']){ ?>
 					<div class="go_chango">
 						<a href="carrito">
 							<?php if(isset($_SESSION['carrito'])){ ?>
-								<img src="static/img/chango_on.png">
+								<img src="static/img/chango_on.png" alt="logo">
 							<?php }else{ ?>
-								<img src="static/img/chango_off.png">
+								<img src="static/img/chango_off.png" alt="logo">
 							<?php } ?>
 						</a>
 					</div>

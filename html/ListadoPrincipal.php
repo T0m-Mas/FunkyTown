@@ -10,16 +10,16 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>
 				<?php if($_SESSION['logeado']){ ?>
 					<div class="go_chango">
 						<a href="carrito">
 						<?php if(isset($_SESSION['carrito'])){ ?>
-								<img src="static/img/chango_on.png">
+								<img src="static/img/chango_on.png" alt="none">
 							<?php }else{ ?>
-								<img src="static/img/chango_off.png">
+								<img src="static/img/chango_off.png" alt="none">
 							<?php } ?>
 						</a>
 					</div>
@@ -37,7 +37,7 @@
 							<select name="categoria" id="categoria">
 								<option value="" selected disabled="">Categorias...</option>
 							<?php foreach ($this->categorias as $c) { ?>
-								<option value="<?=$c['id']?>"><a href="aaa"><?=$c['descripcion']?></a></option><?php
+								<option value="<?=$c['id']?>"><?=$c['descripcion']?></option><?php
 							} ?>
 								<option value="0">Ver Todo</option>
 							</select>
@@ -75,10 +75,10 @@
 			<?php } ?>
 				<?php 
 					if($p['img']==null){
-					echo '<img src="static/img/noimage.png" />'; 
+					echo '<img src="static/img/noimage.png" alt="none" />'; 
 					}
 					else{
-						echo '<img src="data:image/jpeg;base64,'.base64_encode($p['img'] ) .'" />'; 
+						echo '<img src="data:image/jpeg;base64,'.base64_encode($p['img'] ) .'" alt="none" />'; 
 					}
 				?>
 				<h2>
@@ -113,14 +113,13 @@
 
 
 		<div class="index">
-			<img src="static/img/btnizq.png" class="indexbtn" id="btnpag-">
+			<img src="static/img/btnizq.png" class="indexbtn" id="btnpag-" alt="none">
 			<span class="indexvisr"><span id="pagactual"></span> / <span><?=$pag+1?></span></span>
-			<img src="static/img/btnder.png" class="indexbtn" id="btnpag+">
+			<img src="static/img/btnder.png" class="indexbtn" id="btnpag+" alt="none">
 		</div>
 	</div>
-</body>
-<script src="static/js/listado.js"></script>
-<script type="text/javascript">
+	<script src="static/js/listado.js"></script>
+	<script type="text/javascript">
 
 	"use strict";
 
@@ -158,5 +157,6 @@
 
 
 
-</script>
+	</script>
+</body>
 </html>

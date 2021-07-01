@@ -12,10 +12,10 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
-					<img src="../static/img/logomain.png" id="logo">				
+				<div id="return_home"><a href="../home">		
+					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</a></div>
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
@@ -84,20 +84,20 @@
 			</table>
 		<?php } ?>
 	</div>
+	<script type="text/javascript">
+		"use strict";
+
+		<?php foreach ($this->pedidos as $p) { ?>
+			document.getElementById(<?=$p['id']?>).onclick = function(){
+				window.location.href = "verpedidoadm?id=<?=$p['id']?>";
+			}
+		<?php } ?>
+
+		<?php if($this->alert != false) { ?>
+			window.alert("<?=$this->alert?>");
+		<?php } ?>
+
+	</script>
+	<script src="../static/js/listadopedidosadm.js"></script>
 </body>
-<script type="text/javascript">
-	"use strict";
-
-	<?php foreach ($this->pedidos as $p) { ?>
-		document.getElementById(<?=$p['id']?>).onclick = function(){
-			window.location.href = "verpedidoadm?id=<?=$p['id']?>";
-		}
-	<?php } ?>
-
-	<?php if($this->alert != false) { ?>
-		window.alert("<?=$this->alert?>");
-	<?php } ?>
-
-</script>
-<script src="../static/js/listadopedidosadm.js"></script>
 </html>

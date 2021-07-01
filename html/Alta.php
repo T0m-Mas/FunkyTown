@@ -10,10 +10,10 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
-					<img src="../static/img/logomain.png" id="logo">				
+				<div id="return_home"><a href="../home">		
+					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</a></div>
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="campo">
 				<label for="categoria">Categoria:</label>
-				<select name="categoria" >
+				<select name="categoria" id="categoria">
 				<?php foreach($this->categorias as $c) { ?>
 				<option value="<?=$c['id']?>"><?=$c['descripcion']?></option> <?php } ?>
 				</select>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="campo">
 				<label for="imagen">Imagen Ilustrativa:</label>
-				<input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" multiple="false">
+				<input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
 			</div>
 			<input type="submit" name="guardar" id="submit" value="Guardar">
 		</form>

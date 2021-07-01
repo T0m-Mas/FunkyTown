@@ -12,7 +12,7 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>	
 		</div>
@@ -37,15 +37,14 @@
 		</table>
 		<a href="user?id=<?=$_SESSION['USER']['id']?>">Volver</a>
 	</div>
+	<script type="text/javascript">
+		"use strict";
+
+		<?php foreach ($this->pedidos as $p) { ?>
+			document.getElementById(<?=$p['id']?>).onclick = function(){
+				window.location.href = "verpedido?id=<?=$p['id']?>";
+			}
+		<?php } ?>
+	</script>
 </body>
-<script type="text/javascript">
-	"use strict";
-
-	<?php foreach ($this->pedidos as $p) { ?>
-		document.getElementById(<?=$p['id']?>).onclick = function(){
-			window.location.href = "verpedido?id=<?=$p['id']?>";
-		}
-	<?php } ?>
-
-</script>
 </html>

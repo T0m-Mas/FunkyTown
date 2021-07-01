@@ -11,7 +11,7 @@
 	<div class="fondobanner">
 		<div class="banner">
 			<div id="return_home">		
-				<img src="static/img/logomain.png" id="logo">				
+				<img src="static/img/logomain.png" id="logo" alt="none">				
 				<h1>FunkyTown</h1>
 			</div>
 		</div>
@@ -40,6 +40,6 @@
 		<a href="home">Volver</a>
 		<p class="letrachica">Si quieres Solicitar la Baja o Modificacion de tus datos escribenos a support@funkytown.com </p>
 	</div>
+	<script src="static/js/userpanel.js"></script>
 </body>
-<script src="static/js/userpanel.js"></script>
 </html>

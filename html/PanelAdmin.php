@@ -10,10 +10,10 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+				<div id="return_home"><a href="home">		
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</a></div>
 				<a href="admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 		<h2>Menu de administrador</h2>
 		<a href="admin/altaproducto">Agregar Nuevo Producto</a>
 		<a href="admin/inventario">Ver Productos/Stock</a>
-		<a href="admin/listadopedidosadm">Ver Pedidos<a>
+		<a href="admin/listadopedidosadm">Ver Pedidos</a>
 		<a href="home">Volver al home</a>
 	</div>
 

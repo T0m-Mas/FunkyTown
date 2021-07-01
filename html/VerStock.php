@@ -10,10 +10,10 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
-					<img src="../static/img/logomain.png" id="logo">				
+				<div id="return_home"><a href="../home">		
+					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</a></div>
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
@@ -21,10 +21,10 @@
 		
 		<?php 
 			if($this->producto['img']==null){
-			echo '<img src="../static/img/noimage.png" id="btnfoto"/>'; 
+			echo '<img src="../static/img/noimage.png" id="btnfoto" alt="none" />'; 
 			}
 			else{
-				echo '<img src="data:image/jpeg;base64,'.base64_encode($this->producto['img'] ) .'" id="btnfoto"/>'; 
+				echo '<img src="data:image/jpeg;base64,'.base64_encode($this->producto['img'] ) .'" id="btnfoto" alt="none" />'; 
 			}
 		?>
 		<div class="campo">
@@ -32,8 +32,9 @@
 			<p><?=$this->producto['descripcion']?></p>
 			<p>$<?=$this->producto['precio_venta']?></p>
 		</div>
+
 			<table>
-				<th>TALLE</th><th>CANTIDAD</th><th>RESERVADO</th><th>OPERACION</th>
+				<tr><th>TALLE</th><th>CANTIDAD</th><th>RESERVADO</th><th>OPERACION</th></tr>
 				<?php foreach($this->stock as $s) { ?>
 				<tr>
 					<td><?=$s['talle']?></td>
@@ -54,6 +55,5 @@
 			<p id="error"><?=$this->error?></p>
 		<a href="inventario">Volver</a>
 	</div>
-
 </body>
 </html>

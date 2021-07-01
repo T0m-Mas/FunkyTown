@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Modificar Producto (<?=$this->p['titulo']?>)</title>
+	<title>Modificar <?=$this->producto['titulo']?></title>
 	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/adm.css">
 	<link rel="icon" href="../static/img/icono.ico" type="image/x-icon">
@@ -10,20 +10,20 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
-					<img src="../static/img/logomain.png" id="logo">				
+				<div id="return_home"><a href="../home">		
+					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</a></div>
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
 	<div class="contenido">
 		<?php 
 			if($this->producto['img']==null){
-			echo '<img src="../static/img/noimage.png" id="btnfoto"/>'; 
+			echo '<img src="../static/img/noimage.png" id="btnfoto" alt="none" />'; 
 			}
 			else{
-				echo '<img src="data:image/jpeg;base64,'.base64_encode($this->producto['img'] ) .'" id="btnfoto"/>'; 
+				echo '<img src="data:image/jpeg;base64,'.base64_encode($this->producto['img'] ) .'" id="btnfoto" alt="none" />'; 
 			}
 		?>
 		<form method="POST" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
 			</div>
 			<div class="campo">
 				<label for="nuevoprecio" class="lbl2">Precio:</label>
-				<input type="numeric" name="nuevoprecio" id="nuevoprecio" value="<?=$this->producto['precio_venta']?>">
+				<input type="text" name="nuevoprecio" id="nuevoprecio" value="<?=$this->producto['precio_venta']?>">
 			</div>
 			<div class="botones">
 				<input type="submit" name="eliminar" id="eliminar" value="Eliminar Este Producto">
@@ -62,6 +62,6 @@
 		
 		<a href="../admin">Volver...</a>
 	</div>
+	<script src="../static/js/modificar.js"></script>
 </body>
-<script src="../static/js/modificar.js"></script>
 </html>

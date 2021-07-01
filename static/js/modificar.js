@@ -3,6 +3,7 @@
 var categoria = document.getElementById("nuevacategoria").value;
 
 document.getElementById("guardar").onclick = function(){
+
 	if(categoria!=document.document.getElementById("nuevacategoria").value){
 		if(!confirm("Si cambia la categoria se eliminara el stock\n¿Continuar?")){
 			return false;

@@ -11,7 +11,7 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="../static/img/logomain.png" id="logo">				
+					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>
 				<a href="../admin" class="boton">Panel Admin</a>		

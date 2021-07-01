@@ -10,16 +10,16 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>
 				<?php if($_SESSION['logeado']){ ?>
 					<div class="go_chango">
 						<a href="carrito">
 							<?php if(isset($_SESSION['carrito'])){ ?>
-								<img src="static/img/chango_on.png">
+								<img src="static/img/chango_on.png" alt="none">
 							<?php }else{ ?>
-								<img src="static/img/chango_off.png">
+								<img src="static/img/chango_off.png" alt="none">
 							<?php } ?>
 						</a>
 					</div>
@@ -51,8 +51,7 @@
 		<p>Somos un emprendimiento indie que se formo al mediados del 2017 nos dedicamos al estampado de prendas</p>
 		<p>Contamos con diseños propios asi como diseños para el publico general, Siempre buscamos inovar y renovar nuestro catalogo.</p>
 		<p>Te invitamos a que veas nuestros productos</p>
-		<img src="static/img/logomain.png" id="img_contenido">
-		</p>
+		<img src="static/img/logomain.png" id="img_contenido" alt="none">
 		</div>
 
 		<div id="contacto">	
@@ -65,9 +64,9 @@
 
 		<h2>Encontranos en:</h2>
 		<table>
-			<tr><td><a href="https://www.instagram.com"><img src="static/img/logoinsta.png"></a></td>
-			<td><a href="https://www.facebook.com"><img src="static/img/logofb.png"></a></td>
-			<td><a href="https://www.mercadolibre.com"><img src="static/img/logoml.png"></a></td></tr>
+			<tr><td><a href="https://www.instagram.com"><img src="static/img/logoinsta.png" alt="none"></a></td>
+			<td><a href="https://www.facebook.com"><img src="static/img/logofb.png" alt="none"></a></td>
+			<td><a href="https://www.mercadolibre.com"><img src="static/img/logoml.png" alt="none"></a></td></tr>
 		</table>
 
 		</div>

@@ -22,8 +22,8 @@ class Categoria extends Model{
 
 	public function existe($id){
 
-		if(!ctype_digit($id)) throw new ValidacionException('errexiste1');
-		if($id<=0) throw new ValidacionException('errexiste2');
+		if(!ctype_digit($id)) return false;
+		if($id<=0) return false;
 
 		$this->db->query("SELECT id FROM categoria WHERE id = $id");
 		if($this->db->numRows()==1){

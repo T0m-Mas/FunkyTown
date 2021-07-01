@@ -12,7 +12,7 @@
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>	
 		</div>
@@ -46,6 +46,6 @@
 		<?php } ?>
 		<a href="listadopedidos?id=<?=$_SESSION['USER']['id']?>">Volver</a>
 	</div>
+	<script src="static/js/detallepedido.js"></script>
 </body>
-<script src="static/js/detallepedido.js"></script>
 </html>

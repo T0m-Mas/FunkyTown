@@ -2,15 +2,15 @@
 <html>
 <head>
 	<title>Iniciar Sesion</title>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/login_register.css">
+	<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 </head>
-<link rel="stylesheet" type="text/css" href="static/css/main.css">
-<link rel="stylesheet" type="text/css" href="static/css/login_register.css">
-<link rel="icon" href="static/img/icono.ico" type="image/x-icon">
 <body>
 	<div class="fondobanner">
 		<div class="banner">
 				<div id="return_home">		
-					<img src="static/img/logomain.png" id="logo">				
+					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
 				</div>			
 		</div>
@@ -33,6 +33,6 @@
 	</div>
 	<span class="registro">¿No tienes cuenta? <a href="login?registrarse=true">¡Registrate Aqui!</a></span>
 	</div>
+	<script src="static/js/login.js"></script>
 </body>
-<script src="static/js/login.js"></script>
 </html>
