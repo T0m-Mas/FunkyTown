@@ -11,10 +11,10 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
+				<div id="return_home"><a href="../home">		
 					<img src="../static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>
+				</div></a>
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
@@ -46,6 +46,8 @@
 		<?php } else { ?>
 			<p><?=$this->pedido['resultado']?> - <?=$this->pedido['fecha_reg']?></p>
 		<?php } ?>
+
+		<a href="../admin">Volver</a>
 	</div>
 	<script src="../static/js/detallepedidoadm.js"></script>
 </body>

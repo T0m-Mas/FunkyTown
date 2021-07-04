@@ -10,6 +10,26 @@ class Producto extends Model{
 			 GROUP BY p.id
 			 ORDER BY stock desc"
 		);
+		
+		if($this->db->numRows()==0){
+			return false;
+		}
+
+		return $this->db->fetchAll();
+	}
+
+	public function getTodosOrdenadosNombre(){
+		$this->db->query(
+			"SELECT p.*,SUM(s.cantidad-s.reserva) as stock FROM producto p
+			 LEFT JOIN stock s on s.id_producto = p.id
+			 GROUP BY p.id
+			 ORDER BY p.titulo"
+		);
+		
+		if($this->db->numRows()==0){
+			return false;
+		}
+
 		return $this->db->fetchAll();
 	}
 
@@ -29,6 +49,11 @@ class Producto extends Model{
 			 GROUP BY p.id
 			 ORDER BY stock desc,p.id_categoria"
 		);
+
+		if($this->db->numRows()==0){
+			return false;
+		}
+
 		return $this->db->fetchAll();
 
 	}
@@ -67,7 +92,7 @@ class Producto extends Model{
 		$this->db->query("SELECT id FROM producto WHERE id = $id");
 		if($this->db->numRows()==0) throw new ValidacionException("errGetid 3");
 
-		$this->db->query("SELECT id,titulo,descripcion,precio_venta FROM producto WHERE id = $id");
+		$this->db->query("SELECT id,titulo,descripcion,id_categoria,precio_venta FROM producto WHERE id = $id");
 		return $this->db->fetch();
 
 	}

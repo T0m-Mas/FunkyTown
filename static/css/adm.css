@@ -148,3 +148,9 @@ textarea{
 #inputfile{
 	display: none;
 }
+
+#error{
+	font-family: fontparrafo;
+	margin-top: 14px;
+	margin-bottom: 14px;
+}

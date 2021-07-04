@@ -21,6 +21,7 @@ if(!isset($_GET['id'])){
 }
 
 $p = new Producto();
+$alert = false;
 
 if(isset($_POST['guardar'])){ //guardo
 	$pr = $p->getID($_GET['id']);
@@ -38,17 +39,23 @@ if(isset($_POST['guardar'])){ //guardo
 		$p->setPrecio($_GET['id'],$_POST['nuevoprecio']);
 
 	if($_FILES['nuevafoto']['tmp_name']!=""){ //cambio imagen
-		if($_FILES['nuevafoto']['size']>2097152) die("tamaño maximo de imagen: 2Mbs");
-		$img = addslashes(file_get_contents($_FILES['nuevafoto']['tmp_name']));	
-		$p->setImagen($_GET['id'],$img);
+		if($_FILES['nuevafoto']['size']>100000) {
+			$alert = "tamaño maximo de imagen: 100kbs";
+		}else{
+			$img = addslashes(file_get_contents($_FILES['nuevafoto']['tmp_name']));	
+			$p->setImagen($_GET['id'],$img);
+		}
 	}
 }
+
+$view = new Modificacion($p->getID($_GET['id']));
+$view->alert = $alert;
 
 if(isset($_POST['eliminar'])){
 	$p->eliminar($_GET['id']);
 	header("location: inventario");
 }
-$view = new Modificacion($p->getID($_GET['id']));
+
 $view->render();
 
 

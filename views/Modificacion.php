@@ -4,6 +4,7 @@ class Modificacion extends View{
 
 	protected $producto;
 	public $categorias;
+	public $alert = false;
 
 	public function __construct($p){
 		$this->producto = array();

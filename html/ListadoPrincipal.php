@@ -66,6 +66,9 @@
 	?>	
 
 	<div class="contenido">
+		<?php if($this->productos==false){ ?>
+			<p>No se encontraron productos</p>
+		<?php }else{?>
 		<div class="pagina" id="pag_<?=$pag?>">
 		<?php foreach($this->productos as $p){ ?>
 			<?php if($p['stock']==0){ ?>		
@@ -117,46 +120,47 @@
 			<span class="indexvisr"><span id="pagactual"></span> / <span><?=$pag+1?></span></span>
 			<img src="static/img/btnder.png" class="indexbtn" id="btnpag+" alt="none">
 		</div>
+
+		<?php } ?>
+
 	</div>
+
 	<script src="static/js/listado.js"></script>
 	<script type="text/javascript">
 
-	"use strict";
+		"use strict";
 
-	var pag_select = document.getElementById("pag_0");
-	var pagnum = 0;
-	var btnsig = document.getElementById("btnpag+");
-	var btnant = document.getElementById("btnpag-");
-	var pagactualvisor = document.getElementById("pagactual");
-	pagactualvisor.innerHTML = 1;
+		var pag_select = document.getElementById("pag_0");
+		var pagnum = 0;
+		var btnsig = document.getElementById("btnpag+");
+		var btnant = document.getElementById("btnpag-");
+		var pagactualvisor = document.getElementById("pagactual");
+		pagactualvisor.innerHTML = 1;
 
-	btnsig.onclick = function(){		
-		pagnum++;
-		if(pagnum><?=$pag?>) {
-			pagnum--;
-			return false;
-		}
-		pag_select.className = "pagina_hide";
-		pag_select = document.getElementById("pag_"+pagnum);
-		pag_select.className = "pagina";
-		pagactualvisor.innerHTML = pagnum+1;
-		
-	}
-
-	btnant.onclick = function(){
-		pagnum--;
-		if(pagnum<0) {
+		btnsig.onclick = function(){		
 			pagnum++;
-			return false;
+			if(pagnum><?=$pag?>) {
+				pagnum--;
+				return false;
+			}
+			pag_select.className = "pagina_hide";
+			pag_select = document.getElementById("pag_"+pagnum);
+			pag_select.className = "pagina";
+			pagactualvisor.innerHTML = pagnum+1;
+			
 		}
-		pag_select.className = "pagina_hide";
-		pag_select = document.getElementById("pag_"+pagnum);
-		pag_select.className = "pagina";
-		pagactualvisor.innerHTML = pagnum+1;
-	}
 
-
-
+		btnant.onclick = function(){
+			pagnum--;
+			if(pagnum<0) {
+				pagnum++;
+				return false;
+			}
+			pag_select.className = "pagina_hide";
+			pag_select = document.getElementById("pag_"+pagnum);
+			pag_select.className = "pagina";
+			pagactualvisor.innerHTML = pagnum+1;
+		}
 	</script>
 </body>
 </html>

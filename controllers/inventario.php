@@ -20,7 +20,7 @@ if(!$_SESSION['USER']['privilegio']==1){
 $view = new Inventario();
 $p = new Producto();
 
-$view->productos = $p->getTodos();
+$view->productos = $p->getTodosOrdenadosNombre();
 
 //$view->categorias = new Categoria()->getTodos();
 

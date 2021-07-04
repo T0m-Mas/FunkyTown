@@ -48,7 +48,7 @@
 	<div class="contenido">	
 		<div id="nosotros">	
 		<h2>¿Quienes somos?</h2>
-		<p>Somos un emprendimiento indie que se formo al mediados del 2017 nos dedicamos al estampado de prendas</p>
+		<p>Somos un emprendimiento indie que se formo al mediados del 2017 nos dedicamos a la venta de ropa alternativa</p>
 		<p>Contamos con diseños propios asi como diseños para el publico general, Siempre buscamos inovar y renovar nuestro catalogo.</p>
 		<p>Te invitamos a que veas nuestros productos</p>
 		<img src="static/img/logomain.png" id="img_contenido" alt="none">

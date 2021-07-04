@@ -40,8 +40,8 @@ class Pedido extends Model{
 
 
 
-		if(count($tallesdisp)==2){ /*2 = 1 talle (talle,cantidad)*/
-			if($tallesdisp['talle']==$talle && $tallesdisp['cantidad']>=$cantidad){
+		if($producto['id_categoria']==5){
+			if($tallesdisp[0]['talle']==$talle && $tallesdisp[0]['cantidad']>=$cantidad){
 				$flag = 'ok';
 				$producto['disponibles'] = $tallesdisp['cantidad']; //guardo la cantidad para validar desp
 			}
@@ -123,6 +123,7 @@ class Pedido extends Model{
 			 DATE_FORMAT(p.fecha,'%d/%m/%Y') as 'fecha',
 			 GROUP_CONCAT(CONCAT(pr.titulo,' x',pp.cantidad) SEPARATOR ' - ') as 'descripcion',
 			 e.descripcion as 'estado',
+			 e.id as 'estado_id',
 			 p.monto_total 
 			 from pedido p
 			 left join estado e on e.id = p.estado
@@ -132,6 +133,10 @@ class Pedido extends Model{
 			 GROUP BY p.id
 			 ORDER BY p.fecha desc"
 		);
+
+		if($this->db->numRows()==0){
+			return false;
+		}
 
 		return $this->db->fetchAll();
 	}

@@ -17,15 +17,19 @@
 				<a href="../admin" class="boton">Panel Admin</a>		
 		</div>
 	</div>
-	<div class="contenido">		
+	<div class="contenido">	
+	<?php if($this->productos!=false){?>	
 		<div class="listado">
 			<?php foreach($this->productos as $p){ ?>			
-			<p><span class="titulo"><?=$p['titulo']?></span>
+			<p><span class="titulo">[<?=$p['id']?>] <?=$p['titulo']?></span>
 			<a href="modificarproducto?id=<?=$p['id']?>">Modificar</a>
 			<a href="stock?id=<?=$p['id']?>">Ver Stock</a>
 			<?php } ?>
 			</p>
 		</div>
+	<?php }else{ ?>
+		<p>No se encontraron productos</p>
+	<?php } ?>
 
 		<a href="../admin">Volver</a>
 	</div>

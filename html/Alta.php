@@ -22,11 +22,11 @@
 		<form method="POST" enctype="multipart/form-data">
 			<div class="campo">
 				<label for="titulo">Titulo:</label>
-				<input type="text" name="titulo" id="titulo">
+				<input type="text" name="titulo" id="titulo" maxlength="40">
 			</div>
 			<div class="campo">
 				<label for="descripcion">Descripcion:</label>
-				<textarea name="descripcion" id="descripcion" rows=10></textarea>
+				<textarea name="descripcion" id="descripcion" rows=10 maxlength="256"></textarea>
 			</div>
 			<div class="campo">
 				<label for="categoria">Categoria:</label>
@@ -37,15 +37,22 @@
 			</div>
 			<div class="campo">
 				<label for="precio">Precio Venta:</label>
-				<input type="text" name="precio" id="precio">
+				<input type="text" name="precio" id="precio" >
 			</div>
 			<div class="campo">
 				<label for="imagen">Imagen Ilustrativa:</label>
 				<input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
 			</div>
+			<p id="error"></p>
 			<input type="submit" name="guardar" id="submit" value="Guardar">
 		</form>
 	</div>
 
+	<script type="text/javascript">
+		<?php if($this->alert!=false){ ?>
+			window.alert("<?=$this->alert?>");
+		<?php } ?>
+	</script>
+	<script src="../static/js/alta.js"></script>
 </body>
 </html>

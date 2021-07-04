@@ -20,7 +20,7 @@
 	<div class="contenido">
 		<?php 
 			if($this->producto['img']==null){
-			echo '<img src="../static/img/noimage.png" id="btnfoto" alt="none" />'; 
+				echo '<img src="../static/img/noimage.png" id="btnfoto" alt="none" />'; 
 			}
 			else{
 				echo '<img src="data:image/jpeg;base64,'.base64_encode($this->producto['img'] ) .'" id="btnfoto" alt="none" />'; 
@@ -30,12 +30,12 @@
 		<input type="file" name="nuevafoto" id="inputfile">	
 			<div class="campo">
 				<label for="nuevotitulo" class="lbl2">Titulo:</label>
-				<input type="text" id="nuevotitulo" name="nuevotitulo" value="<?=$this->producto['titulo']?>">
+				<input type="text" id="nuevotitulo" name="nuevotitulo" value="<?=$this->producto['titulo']?>" maxlength="40" >
 			</div>
 
 			<div class="campo">
 				<label for="nuevadescripcion" class="lbl2">Descripcion:</label>
-				<textarea name="nuevadescripcion" id="nuevadescripcion"><?=$this->producto['descripcion']?></textarea>
+				<textarea name="nuevadescripcion" id="nuevadescripcion" maxlength="256" ><?=$this->producto['descripcion']?></textarea>
 			</div>
 			
 			<div class="campo">
@@ -52,16 +52,23 @@
 			</div>
 			<div class="campo">
 				<label for="nuevoprecio" class="lbl2">Precio:</label>
-				<input type="text" name="nuevoprecio" id="nuevoprecio" value="<?=$this->producto['precio_venta']?>">
+				<input type="text" name="nuevoprecio" id="nuevoprecio" value="<?=$this->producto['precio_venta']?>" >
 			</div>
 			<div class="botones">
 				<input type="submit" name="eliminar" id="eliminar" value="Eliminar Este Producto">
 				<input type="submit" name="guardar" id="guardar" value="Guardar Cambios">
 			</div>
 		</form>
+
+		<p id="error"></p>
 		
 		<a href="../admin">Volver...</a>
 	</div>
+	<script type="text/javascript">
+		<?php if($this->alert!=false){ ?>
+			window.alert("<?=$this->alert?>");
+		<?php } ?>
+	</script>
 	<script src="../static/js/modificar.js"></script>
 </body>
 </html>

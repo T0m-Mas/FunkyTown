@@ -63,7 +63,7 @@
 		<form name="pedido" method="POST">
 			<?php if($this->producto['id_categoria']==5) {?>
 				<label for="cantidad">Cantidad:</label>
-				<input type="number" name="cantidad" id="cantidad" min=1 max=<?=$this->talles[0]['cantidad']?> value="1">
+				<input type="number" name="cantidad" id="cantidad" min="1" max="<?=$this->talles[0]['cantidad']?>" value="1">
 				<input type="hidden" name="talle" id="talle" value="<?=$this->talles[0]['talle']?>">
 				<?php }else{ ?>
 					<div class="campo">

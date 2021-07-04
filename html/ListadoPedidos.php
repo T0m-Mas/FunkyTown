@@ -11,30 +11,40 @@
 <body>
 	<div class="fondobanner">
 		<div class="banner">
-				<div id="return_home">		
+				<div id="return_home"><a href="home">		
 					<img src="static/img/logomain.png" id="logo" alt="none">				
 					<h1>FunkyTown</h1>
-				</div>	
+				</div></a>	
 		</div>
 	</div>
 	<div class="contenido">
-		<h2>Tus Pedidos</h2>
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>Productos</th>
-				<th>Fecha</th>
-				<th>Estado</th>
-			</tr>
-			<?php foreach($this->pedidos as $p) { ?>
-				<tr id="<?=$p['id']?>" class="pedido"> 				
-					<td><?=$p['id']?></td>
-					<td><?=$p['descripcion']?></td>
-					<td><?=$p['fecha']?></td>
-					<td><?=$p['estado']?></td>					
+		<?php if($this->pedidos==false){ ?>
+			<p>No se encontraron pedidos</p>
+		<?php }else{ ?>
+			<h2>Tus Pedidos</h2>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Productos</th>
+					<th>Fecha</th>
+					<th>Estado</th>
 				</tr>
-			<?php } ?>
-		</table>
+					<?php foreach($this->pedidos as $p) { ?>
+						<?php if($p['estado_id'] == 2){ ?>
+						<tr id="<?=$p['id']?>" class="pedido_desp">
+						<?php }elseif($p['estado_id'] == 1 || $p['estado_id'] == 0){?> 
+						<tr id="<?=$p['id']?>" class="pedido">	
+						<?php }elseif($p['estado_id'] == -1 || $p['estado_id'] == -2){?> 
+						<tr id="<?=$p['id']?>" class="pedido_cancel">	
+						<?php } ?>			
+						<td><?=$p['id']?></td>
+						<td><?=$p['descripcion']?></td>
+						<td><?=$p['fecha']?></td>
+						<td><?=$p['estado']?></td>					
+					</tr>
+				<?php } ?>
+			</table>
+		<?php } ?>
 		<a href="user?id=<?=$_SESSION['USER']['id']?>">Volver</a>
 	</div>
 	<script type="text/javascript">

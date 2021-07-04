@@ -3,6 +3,6 @@
 class Alta extends view{
 
 	public $categorias;
-	public $error;
+	public $alert;
 	
 }

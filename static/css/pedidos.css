@@ -17,7 +17,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 }
-.contenido table tr.pedido:hover{
+.pedido:hover,.pedido_cancel:hover,.pedido_desp:hover{
 	cursor: pointer;
 	color: #00ffdd;
 }
